@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace RandomMovieChooser
 {
@@ -8,12 +7,14 @@ namespace RandomMovieChooser
     {
         static void Main(string[] args)
         {
-            randomMovieChooser();
+            Program prog = new Program();
 
-            chooseAgain();
+            prog.randomMovieChooser();
+
+            prog.chooseAgain();
         }
 
-        static void randomMovieChooser()
+        void randomMovieChooser()
         {
             Random RNG = new Random();
 
@@ -32,12 +33,14 @@ namespace RandomMovieChooser
 
         }
 
-        static void closeProgram()
+        void closeProgram()
         {
             do
             {
                 while (!Console.KeyAvailable)
                 {
+                    // This was for testing the key listening capabilities.
+
                     //Console.WriteLine("Waiting");
                 }
             }
@@ -46,8 +49,12 @@ namespace RandomMovieChooser
                 randomMovieChooser();
             }
         }
-        static void chooseAgain()
+
+        void chooseAgain()
         {
+
+            Program prog = new Program();
+
             Console.WriteLine("If you'd like to choose again, press ENTER");
 
             do
@@ -59,9 +66,8 @@ namespace RandomMovieChooser
             }
             while (Console.ReadKey(true).Key != ConsoleKey.Enter);
             {
-                randomMovieChooser();
+                prog.randomMovieChooser();
             }
-
             chooseAgain();
         }
     }
