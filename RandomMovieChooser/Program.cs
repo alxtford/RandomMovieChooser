@@ -35,15 +35,6 @@ namespace RandomMovieChooser
 
         void closeProgram()
         {
-            do
-            {
-                while (!Console.KeyAvailable)
-                {
-                    // This was for testing the key listening capabilities.
-
-                    //Console.WriteLine("Waiting");
-                }
-            }
             while (Console.ReadKey(true).Key != ConsoleKey.Escape);
             {
                 randomMovieChooser();
@@ -57,13 +48,6 @@ namespace RandomMovieChooser
 
             Console.WriteLine("If you'd like to choose again, press ENTER");
 
-            do
-            {
-                while (!Console.KeyAvailable)
-                {
-                    //Console.WriteLine("Waiting");
-                }
-            }
             while (Console.ReadKey(true).Key != ConsoleKey.Enter);
             {
                 prog.randomMovieChooser();
